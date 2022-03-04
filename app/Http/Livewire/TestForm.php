@@ -12,6 +12,7 @@ class TestForm extends Component implements HasForms
     use InteractsWithForms;
 
     public $file;
+    public $checkbox;
 
     public function mount()
     {
@@ -25,6 +26,7 @@ class TestForm extends Component implements HasForms
         return [
             Forms\Components\FileUpload::make('file')
                 ->required()->multiple(),
+            Forms\Components\Checkbox::make('checkbox'),
         ];
     }
 
