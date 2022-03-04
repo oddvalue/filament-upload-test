@@ -11,11 +11,20 @@ class TestForm extends Component implements HasForms
 {
     use InteractsWithForms;
 
+    public $file;
+
+    public function mount()
+    {
+        $this->form->fill([
+            'file' => ['2.png'],
+        ]);
+    }
+
     protected function getFormSchema(): array
     {
         return [
             Forms\Components\FileUpload::make('file')
-                ->required(),
+                ->required()->multiple(),
         ];
     }
 
